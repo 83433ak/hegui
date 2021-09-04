@@ -19,7 +19,8 @@
         text-align: center;
     }
     #Main{
-        font-weight: bold;
+        /*font-weight: bold;*/
+        font-size: 18px;
     }
     .center ul{
         height: 180px;
@@ -67,7 +68,8 @@
         flex-wrap: wrap;
     }
     .footer li p {
-        font-weight: bold;
+
+       /*font-weight: bold;*/
     }
 </style>
 
@@ -82,52 +84,71 @@
         </ul>
         <p style="
             background-color: rgb(246,246,246);
-            font-size: 12px;
+            font-size: 14px;
             border-bottom: 1px solid rgb(243,243,243);
             padding: 10px 10px;
-            color: rgb(205,205,205);">
+            color: grey;">
             外出时间</p>
 
         <li>
+
             <p>离校时间</p>
-            <span>2021-09-03 10:36</span>
+            <b>2021-09-03 10:36</b>
         </li>
 
-        <li>
+        <li 
+        style=" border-width: 1px; 
+        border-top:1px solid rgb(243,243,243);
+         border-bottom:px solid rgb(243,243,243);">
             <p>回校时间</p>
-            <span>2021-09-03 10:36</span>
+            <b>2021-09-03 10:36</b>
         </li>
 
-        <div class="line"></div>
+       <!--/* <div class="line"></div>*/-->
     </div>
 
     <div class="footer">
         <ul>
-            <p>学生信息</p>
+             <p style="
+
+            font-size: 14px;
+            padding: 10px -20px;
+
+            color: grey;">学生信息</p>
+            
         </ul>
 
-        <li>
-            <p>姓名</p>
-            <span>余俊威</span>
+        <li style="border-bottom:1px solid rgb(243,243,243);">
+            <p >姓名</p>
+             <style type="text/css">
+            span{color :gray;}
+        </style>
+            <span>
+            余俊威</span>
         </li>
 
-        <li>
+        <li style="border-bottom:1px solid rgb(243,243,243); ">
             <p>学号</p>
             <span>3120009473</span>
-        </li>
+        </li style="border-bottom:1px solid rgb(243,243,243);">
 
-        <li>
+        <li style="border-bottom:1px solid rgb(243,243,243);">
             <p>学院</p>
             <span>国际教育学院</span>
         </li>
 
-        <li>
+        <li style="border-bottom:1px solid rgb(243,243,243);
+                ">
             <p>专业</p>
             <span>计算机科学与技术(国际班)</span>
         </li>
 
-        <li>
+        <li style="border-bottom:1px solid rgb(243,243,243);
+
+              ">
+
             <p>班级</p>
+            <div style="border:1px solid #CCC"></div> 
             <span>计算机科学与技术(国际班)20(2)</span>
         </li>
     </div>
