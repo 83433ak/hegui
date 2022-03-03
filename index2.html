@@ -94,7 +94,7 @@
         <li>
 
             <p>离校时间</p>
-            <b>2022-3-1 17:15</b>
+            <b id="a1">2022-3-1 17:15</b>
         </li>
 
         <li 
@@ -102,7 +102,7 @@
         border-top:1px solid rgb(243,243,243);
          border-bottom:px solid rgb(243,243,243);">
             <p>回校时间</p>
-            <b>2022-3-1 23:59</b>
+            <b id="a2">2022-3-1 23:59</b>
         </li>
 
        <!--/* <div class="line"></div>*/-->
@@ -157,6 +157,16 @@
     <div class="ccc" style="height: 100px; background-color: rgb(246,246,246);"></div>
 
     <script type="text/javascript">
+        
+           a1= document.getElementById("a1")
+    a2=document.getElementById("a2")
+   a2.innerHTML= document.location.search.split("&")[0].split("=")[1];
+   a1.innerHTML= document.location.search.split("&")[1].split("=")[1];
+        
+        
+        
+        
+        
         window.onload=function()
         {
             window.requestAnimationFrame(getDate)
