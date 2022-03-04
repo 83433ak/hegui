@@ -124,7 +124,7 @@
              <style type="text/css">
             span{color :gray;}
         </style>
-            <span>
+            <span id="a5">
             余俊威</span>
         </li>
 
@@ -157,11 +157,15 @@
     <div class="ccc" style="height: 100px; background-color: rgb(246,246,246);"></div>
 
     <script type="text/javascript">
-        
-           a1= document.getElementById("a1")
+         var  arr=document.location.search.split("&");
+   a1= document.getElementById("a1")
     a2=document.getElementById("a2")
-   a2.innerHTML= document.location.search.split("&")[0].split("=")[1];
-   a1.innerHTML= document.location.search.split("&")[1].split("=")[1];
+
+   a5=document.getElementById("a5")
+     a1.innerHTML=arr[0].split("=")[1]+" "+arr[1].split("=")[1].split("%3A")[0]+":"+arr[1].split("=")[1].split("%3A")[1]
+    a2.innerHTML=arr[2].split("=")[1]+" "+arr[3].split("=")[1].split("%3A")[0]+":"+arr[1].split("=")[1].split("%3A")[1];
+
+    a5.innerHTML=arr[0].split("=")[4];
         
         
         
