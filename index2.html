@@ -9,10 +9,10 @@
 
 <style>
     *{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
     .header{
         height: 55px;
         line-height: 55px;
@@ -66,140 +66,141 @@
         padding: 1px 10px;
         font-size: 12px;
         flex-wrap: wrap;
-         
+
     }
     .footer li p {
 
-       /*font-weight: bold;*/
+        /*font-weight: bold;*/
     }
 </style>
 
 <body>
-    <div class="header">
-        <div id="Main"></div>
-    </div>
+<div class="header">
+    <div id="Main"></div>
+</div>
 
-    <div class="center">
-        <ul>
-            <img src="img.jpg" alt="" height="3px" with="3px">
-        </ul>
-        <p style="
+<div class="center">
+    <ul>
+        <img src="img.jpg" alt="" height="3px" with="3px">
+    </ul>
+    <p style="
             background-color: rgb(246,246,246);
             font-size: 13px;
             border-bottom: 1px solid rgb(243,243,243);
             padding: 10px 10px;
             color: grey;">
-            外出时间</p>
+        外出时间</p>
 
-        <li>
+    <li>
 
-            <p>离校时间</p>
-            <b id="a1">2022-3-1 17:15</b>
-        </li>
+        <p>离校时间</p>
+        <b id="a1">2022-3-1 17:15</b>
+    </li>
 
-        <li 
-        style=" border-width: 1px; 
+    <li
+            style=" border-width: 1px;
         border-top:1px solid rgb(243,243,243);
          border-bottom:px solid rgb(243,243,243);">
-            <p>回校时间</p>
-            <b id="a2">2022-3-1 23:59</b>
-        </li>
+        <p>回校时间</p>
+        <b id="a2">2022-3-1 23:59</b>
+    </li>
 
-       <!--/* <div class="line"></div>*/-->
-    </div>
+    <!--/* <div class="line"></div>*/-->
+</div>
 
-    <div class="footer">
-        <ul>
-             <p style="
+<div class="footer">
+    <ul>
+        <p style="
 
             font-size: 13px;
             padding: 30px -20px;
-            
-            color: grey;">学生信息</p>
-            
-        </ul>
 
-        <li style="border-bottom:1px solid rgb(243,243,243);">
-            <p >姓名</p>
-             <style type="text/css">
+            color: grey;">学生信息</p>
+
+    </ul>
+
+    <li style="border-bottom:1px solid rgb(243,243,243);">
+        <p >姓名</p>
+        <style type="text/css">
             span{color :gray;}
         </style>
-            <span >
+        <span id="a6">
             余俊威</span>
-        </li>
+    </li>
 
-        <li style="border-bottom:1px solid rgb(243,243,243); ">
-            <p>学号</p>
-            <span>3120009473</span>
-        </li style="border-bottom:1px solid rgb(243,243,243);">
+    <li style="border-bottom:1px solid rgb(243,243,243); ">
+        <p>学号</p>
+        <span id="a7">3120009473</span>
+    </li style="border-bottom:1px solid rgb(243,243,243);">
 
-        <li style="border-bottom:1px solid rgb(243,243,243);">
-            <p>学院</p>
-            <span>国际教育学院</span>
-        </li>
+    <li style="border-bottom:1px solid rgb(243,243,243);">
+        <p>学院</p>
+        <span>国际教育学院</span>
+    </li>
 
-        <li style="border-bottom:1px solid rgb(243,243,243);
+    <li style="border-bottom:1px solid rgb(243,243,243);
                 ">
-            <p>专业</p>
-            <span>计算机科学与技术(国际班)</span>
-        </li>
+        <p>专业</p>
+        <span>计算机科学与技术(国际班)</span>
+    </li>
 
-        <li style="border-bottom:1px solid rgb(243,243,243);
+    <li style="border-bottom:1px solid rgb(243,243,243);
 
               ">
 
-            <p>班级</p>
-            <div style="border:1px solid #CCC"></div> 
-            <span>计算机科学与技术(国际<br>班)20(2)</span>
-        </li>
-    </div>
+        <p>班级</p>
+        <div style="border:1px solid #CCC"></div>
+        <span>计算机科学与技术(国际<br>班)20(3)</span>
+    </li>
+</div>
 
-    <div class="ccc" style="height: 100px; background-color: rgb(246,246,246);"></div>
+<div class="ccc" style="height: 100px; background-color: rgb(246,246,246);"></div>
 
-    <script type="text/javascript">
-         var  arr=document.location.search.split("&");
-   a1= document.getElementById("a1")
+<script type="text/javascript">
+    var  arr=document.location.search.split("&");
+    a1= document.getElementById("a1")
     a2=document.getElementById("a2")
-
-   a5=document.getElementById("a5")
-     a1.innerHTML=arr[0].split("=")[1]+" "+arr[1].split("=")[1].split("%3A")[0]+":"+arr[1].split("=")[1].split("%3A")[1]
+    a6=document.getElementById("a6")
+    a7=document.getElementById("a7")
+    a1.innerHTML=arr[0].split("=")[1]+" "+arr[1].split("=")[1].split("%3A")[0]+":"+arr[1].split("=")[1].split("%3A")[1]
     a2.innerHTML=arr[2].split("=")[1]+" "+arr[3].split("=")[1].split("%3A")[0]+":"+arr[1].split("=")[1].split("%3A")[1];
+    a6.innerHTML=decodeURI( arr[4].split("=")[1])
+    a7.innerHTML=decodeURI( arr[5].split("=")[1])
 
- 
-        
-        
-        
-        
-        
-        window.onload=function()
+
+
+
+
+
+    window.onload=function()
         {
             window.requestAnimationFrame(getDate)
         }
-        
-        function getDate()
-        {
-            window.setTimeout(function(){
-                window.requestAnimationFrame(getDate)
-            },1000/2)
-            var d=new Date();   
-            var year=d.getFullYear()  //获取年
-            var month=d.getMonth()+1;  //获取月，从 Date 对象返回月份 (0 ~ 11)，故在此处+1
-            var day=d.getDay()    //获取日
-            var days=d.getDate() //获取日期
-            var hour=d.getHours()   //获取小时
-            var minute=d.getMinutes()  //获取分钟
-            var second=d.getSeconds()   //获取秒
-            
-            if(month<10) month="0"+month
-            if(days<10) days="0"+days
-            if(hour<10) hour="0"+hour
-            if(minute<10) minute="0"+minute
-            if(second<10) second="0"+second
-            
-            var Tools=document.getElementById("Main")
-            var da=year+"-"+month+"-"+days+" "+" "+hour+":"+minute+":"+second
-            Tools.innerHTML=da
-        }
-        
-    </script>
+
+    function getDate()
+    {
+        window.setTimeout(function(){
+            window.requestAnimationFrame(getDate)
+        },1000/2)
+        var d=new Date();
+        var year=d.getFullYear()  //获取年
+        var month=d.getMonth()+1;  //获取月，从 Date 对象返回月份 (0 ~ 11)，故在此处+1
+        var day=d.getDay()    //获取日
+        var days=d.getDate() //获取日期
+        var hour=d.getHours()   //获取小时
+        var minute=d.getMinutes()  //获取分钟
+        var second=d.getSeconds()   //获取秒
+
+        if(month<10) month="0"+month
+        if(days<10) days="0"+days
+        if(hour<10) hour="0"+hour
+        if(minute<10) minute="0"+minute
+        if(second<10) second="0"+second
+
+        var Tools=document.getElementById("Main")
+        var da=year+"-"+month+"-"+days+" "+" "+hour+":"+minute+":"+second
+        Tools.innerHTML=da
+    }
+
+</script>
 </html>
