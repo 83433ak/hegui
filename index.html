@@ -1,61 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>猜猜我是谁 - 手机版</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .game-container {
+            width: 100%;
+            max-width: 500px; /* 限制最大宽度 */
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+        .answer-container {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .answer-image {
+            width: 60px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #4CAF50;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            aspect-ratio: 1; /* 保持正方形 */
+        }
+        .card {
+            width: 100%;
+            aspect-ratio: 3/4;
+            position: relative;
+            cursor: pointer;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .card-back {
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border-radius: 5px;
+            height: 100%;
+        }
+    </style>
 </head>
-<style>
-    .a1{
-
-        width: 80%;
-        margin: auto;
-        height: 40px;
-
-    }
-    .a2{
-        height: 30px;
-        width: 30%;
-        margin-bottom: 20px;
-        margin-right: 100px;
-        margin: auto;
-        padding-right: 50px;
-    }
-</style>
 <body>
-<div   >
-    <form  action
-="
-index2.html
-" >
-        <div >
-                                
-            <div class="a1" > 离校时间
-                <input type="date" name="a1" class="a2">
-                <input type="time" name="a2" class="a2">
+    <div class="game-container">
+        <div class="header">
+            <button id="new-game">新游戏</button>
+            <div class="answer-container">
+                <div>目标人物:</div>
+                <img id="answer-image" class="answer-image" src="" alt="答案">
             </div>
-
-            <div class="a1"> 到校时间
-                <input type="date" name="a3" class="a2">
-                <input type="time" name="a4" class="a2">
-            </div>
-
-            <div  class="a1"> 姓名
-                <input type="text" name="a5" class="a2" >
-            </div>
-
-            <div class="a1"> 学号
-                <input type="text" name="a6"  class="a2">
-            </div>
-            <div class="a1">
-                <input type="submit" class="a2">
-            </div>
-
         </div>
+        
+        <div class="cards-container" id="cards-container"></div>
+    </div>
 
-
-
-    </form>
-</div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardsContainer = document.getElementById('cards-container');
+            const newGameBtn = document.getElementById('new-game');
+            const answerImage = document.getElementById('answer-image');
+            
+            let cards = [];
+            let targetCard = null;
+            
+            // 初始化游戏
+            function initGame() {
+                // 清空容器
+                cardsContainer.innerHTML = '';
+                cards = [];
+                
+                // 创建25张卡片
+                for (let i = 1; i <= 25; i++) {
+                    cards.push({
+                        id: i,
+                        image: `images/person (${i}).jpg`,
+                        visible: true
+                    });
+                }
+                
+                // 随机选择一张作为答案
+                targetCard = {...cards[Math.floor(Math.random() * cards.length)]};
+                answerImage.src = targetCard.image;
+                
+                // 打乱卡片顺序
+                shuffleArray(cards);
+                
+                // 渲染卡片
+                renderCards();
+            }
+            
+            // 渲染卡片
+            function renderCards() {
+                cardsContainer.innerHTML = '';
+                
+                cards.forEach(card => {
+                    const cardEl = document.createElement('div');
+                    cardEl.className = 'card';
+                    cardEl.dataset.id = card.id;
+                    
+                    if (card.visible) {
+                        const img = document.createElement('img');
+                        img.src = card.image;
+                        img.alt = `人物 ${card.id}`;
+                        cardEl.appendChild(img);
+                    } else {
+                        const back = document.createElement('div');
+                        back.className = 'card-back';
+                        back.textContent = '?';
+                        cardEl.appendChild(back);
+                    }
+                    
+                    cardEl.addEventListener('click', () => {
+                        card.visible = !card.visible;
+                        renderCards();
+                    });
+                    
+                    cardsContainer.appendChild(cardEl);
+                });
+            }
+            
+            // 辅助函数：打乱数组
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+            
+            // 事件监听
+            newGameBtn.addEventListener('click', initGame);
+            
+            // 初始化游戏
+            initGame();
+        });
+    </script>
 </body>
 </html>
